@@ -15,6 +15,12 @@ MAIN_SRCS=${CONWAY_SRCS} ${LED_ARRAY_SRCS} hdl/main.sv
 # Look up .PHONY rules for Makefiles
 .PHONY: clean submission remove_solutions
 
+test_decoders_2_4: tests/test_decoders_2_4.sv ${DECODER_SRCS}
+	${IVERILOG} $^ -o test_decoders_2_4.bin && ${VVP} test_decoders_2_4.bin ${VVP_POST}
+
+test_decoders_1_2: tests/test_decoders_1_2.sv ${DECODER_SRCS}
+	${IVERILOG} $^ -o test_decoders_1_2.bin && ${VVP} test_decoders_1_2.bin ${VVP_POST}
+
 test_decoder_1_2: tests/test_decoder_1_2.sv ${DECODER_SRCS}
 	${IVERILOG} $^ -o test_decoder_1_2.bin && ${VVP} test_decoder_1_2.bin ${VVP_POST}
 
