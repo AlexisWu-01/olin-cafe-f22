@@ -10,17 +10,16 @@ module adder_1(a, b, c_in, sum, c_out);
 input wire a, b, c_in;
 output logic sum, c_out;
 
-logic sum1, c1;
-
 always_comb begin
-  sum1 = (a | b) & ~ (a & b); 
-  c1 = a & b;
+  if (a & b & c_in) begin
+    sum = a & b & c_in;
+    cout = sum;
+end else begin
+	sum = (~a & ~b & c_in) | (~a & b & ~c_in) | (a & ~ b & ~c_in);
+  cout = ~sum;
 end
-
-always_comb begin
-  sum = (c_in | s)
+  
 end
-
 
 
 endmodule
