@@ -13,10 +13,10 @@ output logic sum, c_out;
 always_comb begin
   if (a & b & c_in) begin
     sum = a & b & c_in;
-    cout = sum;
+    c_out = sum;
 end else begin
 	sum = (~a & ~b & c_in) | (~a & b & ~c_in) | (a & ~ b & ~c_in);
-  cout = ~sum;
+  c_out = ~sum;
 end
   
 end

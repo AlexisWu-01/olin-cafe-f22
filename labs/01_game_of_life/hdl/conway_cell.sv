@@ -12,5 +12,19 @@ output logic state_q;
 
 input wire [7:0] neighbors;
 
+wire c_in;
+wire [3:0] a,b;
+wire 
+assign a = neighbors[3:0]
+assign b = neighbors[7:4]
+assign c_in = 0;
+
+adder_n ADDER(
+    .a(a),
+    .b(b),
+    .c_in(c_in)
+    .
+)
+
 
 endmodule

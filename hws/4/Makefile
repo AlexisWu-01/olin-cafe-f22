@@ -15,7 +15,8 @@ waves_practice : test_practice
 
 # add targets for your tests of your adders and muxes here!
 
-
+test_mux : mux32.sv test_mux.sv
+	${IVERILOG} $^ -o test_mux.bin && ${VVP} test_mux.bin ${VVP_POST}
 
 # Call this to clean up all your generated files
 clean:
