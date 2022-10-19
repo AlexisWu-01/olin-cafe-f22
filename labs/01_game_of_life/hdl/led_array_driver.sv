@@ -13,7 +13,7 @@ input wire [$clog2(N):0] x;
 input wire [N*N-1:0] cells;
 output logic [N-1:0] rows;
 output logic [N-1:0] cols;
-
+                                                                                                                                                                                                                                                                                                              
 
 // You can check parameters with the $error macro within initial blocks.
 initial begin
@@ -30,5 +30,15 @@ end
 
 wire [N-1:0] x_decoded;
 decoder_3_to_8 COL_DECODER(ena, x, x_decoded);
+
+  generate
+    genvar row;
+    for(row = 0; row < N; row++) begin
+      always_comb begin : set_row
+      // rows need to be low if the cell is high
+        rows[row] = ena & ~|(cells[(row*N)+N-1:row*N] & x_decoded);
+      end
+    end
+  endgenerate
 
 endmodule
