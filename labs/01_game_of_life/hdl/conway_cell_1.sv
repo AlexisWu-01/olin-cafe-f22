@@ -16,7 +16,6 @@ module adder(a, b, c_in, sum, c_out);
     end
 endmodule
 
-
 module cla_adder_2 (A, B, Cin, Sum, Cout);
 parameter N = 1; 
 input  wire [N-1:0] A, B;
@@ -89,7 +88,6 @@ input wire rst;
 input wire ena;
 input wire [(N-1):0] neighbors;
 input wire state_0;
-input logic state_reg;
 output logic state_d; // NOTE - this is only an output of the module for debugging purposes. 
 output logic state_q;
 output logic [N-1:0] Sum;
@@ -100,40 +98,36 @@ cla_adder_8 #(.N(N)) add_neighbors(
     .A (neighbors[0]), .B(neighbors[1]), .D (neighbors[2]), .E(neighbors[3]), 
     .F (neighbors[4]), .H(neighbors[5]), .I (neighbors[6]), .J(neighbors[7]), 
     .Sum(Sum), .Cout(Cout)
-    // WHAT'S CIN?? Do we need to include it?
 );
 
-always @(posedge clk, posedge rst, posedge ena) begin
+
+always_comb begin
+    if (state_q == 1) begin
+        if (Sum == 2 | Sum == 3) begin
+                state_d = 1;
+            end else begin
+                state_d = 0;
+            end
+    end 
+    if (state_q == 0) begin
+        if (Sum == 3) begin
+            state_d = 1;
+        end else begin
+            state_d = 0;
+        end
+    end
+end
+
+
+always_ff @(posedge clk) begin
     if (rst) begin
-        state_reg <= state_0;
-    end
-    else if (ena) begin
-        state_reg <= state_q;
-    end
-    else begin
-        state_reg <= state_0;
+        state_q <= state_0;
+    end else if (ena) begin
+        state_q <= state_d;
+    end else begin
+        state_q <= state_q;
     end
 end 
 
 
-typedef enum logic [1:0] {DEAD, LIVE} state_t;
-state_t state; //is a logic [1:0].
-always_ff @(posedge clk) begin
-    case (state)
-        LIVE: begin
-            if (Sum == 2 | Sum == 3) begin
-                    state_q = LIVE;
-                end else begin
-                    state_q = DEAD;
-                end
-        end 
-        DEAD: begin
-            if (Sum == 3) begin
-                state_q = LIVE;
-            end else begin
-                state_q = DEAD;
-            end
-        end
-    endcase
-end
 endmodule
