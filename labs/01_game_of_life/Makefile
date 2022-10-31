@@ -19,6 +19,9 @@ MAIN_SRCS=${CONWAY_SRCS} ${LED_ARRAY_SRCS} hdl/main.sv
 test_adder_8: tests/test_adder_8.sv hdl/adder_n.sv hdl/adder_1.sv
 	${IVERILOG} $^ -o test_adder_8.bin && ${VVP} test_adder_8.bin ${VVP_POST}
 
+test_adder_n: tests/test_adder_n.sv hdl/adder_n.sv hdl/adder_1.sv
+	${IVERILOG} $^ -o test_adder_n.bin && ${VVP} test_adder_n.bin ${VVP_POST}
+
 test_adder_1: tests/test_adder_1.sv hdl/adder_1.sv
 	${IVERILOG} $^ -o test_adder_1.bin && ${VVP} test_adder_1.bin ${VVP_POST}
 
