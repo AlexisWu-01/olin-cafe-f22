@@ -8,17 +8,18 @@ input  wire [N-1:0] in;    // A 32 bit input
 input  wire [$clog2(N)-1:0] shamt; // Amount we shift by.
 output wire [N-1:0] out;  // Output.
 
-mux32 bit31( 
-.in0(in[31]), 
-.in1(1'b0), 
-.in2(1'b0), 
-.in3(1'b0), 
-.in4(1'b0), 
-.in5(1'b0), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+
+mux32 rlbit31( 
+.in00(in[31]), 
+.in01(1'b0), 
+.in02(1'b0), 
+.in03(1'b0), 
+.in04(1'b0), 
+.in05(1'b0), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -42,20 +43,20 @@ mux32 bit31(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(31) 
+.out(out[31]) 
 ); 
 
-mux32 bit30( 
-.in0(in[30]), 
-.in1(in[31]), 
-.in2(1'b0), 
-.in3(1'b0), 
-.in4(1'b0), 
-.in5(1'b0), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit30( 
+.in00(in[30]), 
+.in01(in[31]), 
+.in02(1'b0), 
+.in03(1'b0), 
+.in04(1'b0), 
+.in05(1'b0), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -79,20 +80,20 @@ mux32 bit30(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(30) 
+.out(out[30]) 
 ); 
 
-mux32 bit29( 
-.in0(in[29]), 
-.in1(in[30]), 
-.in2(in[31]), 
-.in3(1'b0), 
-.in4(1'b0), 
-.in5(1'b0), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit29( 
+.in00(in[29]), 
+.in01(in[30]), 
+.in02(in[31]), 
+.in03(1'b0), 
+.in04(1'b0), 
+.in05(1'b0), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -116,20 +117,20 @@ mux32 bit29(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(29) 
+.out(out[29]) 
 ); 
 
-mux32 bit28( 
-.in0(in[28]), 
-.in1(in[29]), 
-.in2(in[30]), 
-.in3(in[31]), 
-.in4(1'b0), 
-.in5(1'b0), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit28( 
+.in00(in[28]), 
+.in01(in[29]), 
+.in02(in[30]), 
+.in03(in[31]), 
+.in04(1'b0), 
+.in05(1'b0), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -153,20 +154,20 @@ mux32 bit28(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(28) 
+.out(out[28]) 
 ); 
 
-mux32 bit27( 
-.in0(in[27]), 
-.in1(in[28]), 
-.in2(in[29]), 
-.in3(in[30]), 
-.in4(in[31]), 
-.in5(1'b0), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit27( 
+.in00(in[27]), 
+.in01(in[28]), 
+.in02(in[29]), 
+.in03(in[30]), 
+.in04(in[31]), 
+.in05(1'b0), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -190,20 +191,20 @@ mux32 bit27(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(27) 
+.out(out[27]) 
 ); 
 
-mux32 bit26( 
-.in0(in[26]), 
-.in1(in[27]), 
-.in2(in[28]), 
-.in3(in[29]), 
-.in4(in[30]), 
-.in5(in[31]), 
-.in6(1'b0), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit26( 
+.in00(in[26]), 
+.in01(in[27]), 
+.in02(in[28]), 
+.in03(in[29]), 
+.in04(in[30]), 
+.in05(in[31]), 
+.in06(1'b0), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -227,20 +228,20 @@ mux32 bit26(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(26) 
+.out(out[26]) 
 ); 
 
-mux32 bit25( 
-.in0(in[25]), 
-.in1(in[26]), 
-.in2(in[27]), 
-.in3(in[28]), 
-.in4(in[29]), 
-.in5(in[30]), 
-.in6(in[31]), 
-.in7(1'b0), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit25( 
+.in00(in[25]), 
+.in01(in[26]), 
+.in02(in[27]), 
+.in03(in[28]), 
+.in04(in[29]), 
+.in05(in[30]), 
+.in06(in[31]), 
+.in07(1'b0), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -264,20 +265,20 @@ mux32 bit25(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(25) 
+.out(out[25]) 
 ); 
 
-mux32 bit24( 
-.in0(in[24]), 
-.in1(in[25]), 
-.in2(in[26]), 
-.in3(in[27]), 
-.in4(in[28]), 
-.in5(in[29]), 
-.in6(in[30]), 
-.in7(in[31]), 
-.in8(1'b0), 
-.in9(1'b0), 
+mux32 rlbit24( 
+.in00(in[24]), 
+.in01(in[25]), 
+.in02(in[26]), 
+.in03(in[27]), 
+.in04(in[28]), 
+.in05(in[29]), 
+.in06(in[30]), 
+.in07(in[31]), 
+.in08(1'b0), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -301,20 +302,20 @@ mux32 bit24(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(24) 
+.out(out[24]) 
 ); 
 
-mux32 bit23( 
-.in0(in[23]), 
-.in1(in[24]), 
-.in2(in[25]), 
-.in3(in[26]), 
-.in4(in[27]), 
-.in5(in[28]), 
-.in6(in[29]), 
-.in7(in[30]), 
-.in8(in[31]), 
-.in9(1'b0), 
+mux32 rlbit23( 
+.in00(in[23]), 
+.in01(in[24]), 
+.in02(in[25]), 
+.in03(in[26]), 
+.in04(in[27]), 
+.in05(in[28]), 
+.in06(in[29]), 
+.in07(in[30]), 
+.in08(in[31]), 
+.in09(1'b0), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -338,20 +339,20 @@ mux32 bit23(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(23) 
+.out(out[23]) 
 ); 
 
-mux32 bit22( 
-.in0(in[22]), 
-.in1(in[23]), 
-.in2(in[24]), 
-.in3(in[25]), 
-.in4(in[26]), 
-.in5(in[27]), 
-.in6(in[28]), 
-.in7(in[29]), 
-.in8(in[30]), 
-.in9(in[31]), 
+mux32 rlbit22( 
+.in00(in[22]), 
+.in01(in[23]), 
+.in02(in[24]), 
+.in03(in[25]), 
+.in04(in[26]), 
+.in05(in[27]), 
+.in06(in[28]), 
+.in07(in[29]), 
+.in08(in[30]), 
+.in09(in[31]), 
 .in10(1'b0), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -375,20 +376,20 @@ mux32 bit22(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(22) 
+.out(out[22]) 
 ); 
 
-mux32 bit21( 
-.in0(in[21]), 
-.in1(in[22]), 
-.in2(in[23]), 
-.in3(in[24]), 
-.in4(in[25]), 
-.in5(in[26]), 
-.in6(in[27]), 
-.in7(in[28]), 
-.in8(in[29]), 
-.in9(in[30]), 
+mux32 rlbit21( 
+.in00(in[21]), 
+.in01(in[22]), 
+.in02(in[23]), 
+.in03(in[24]), 
+.in04(in[25]), 
+.in05(in[26]), 
+.in06(in[27]), 
+.in07(in[28]), 
+.in08(in[29]), 
+.in09(in[30]), 
 .in10(in[31]), 
 .in11(1'b0), 
 .in12(1'b0), 
@@ -412,20 +413,20 @@ mux32 bit21(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(21) 
+.out(out[21]) 
 ); 
 
-mux32 bit20( 
-.in0(in[20]), 
-.in1(in[21]), 
-.in2(in[22]), 
-.in3(in[23]), 
-.in4(in[24]), 
-.in5(in[25]), 
-.in6(in[26]), 
-.in7(in[27]), 
-.in8(in[28]), 
-.in9(in[29]), 
+mux32 rlbit20( 
+.in00(in[20]), 
+.in01(in[21]), 
+.in02(in[22]), 
+.in03(in[23]), 
+.in04(in[24]), 
+.in05(in[25]), 
+.in06(in[26]), 
+.in07(in[27]), 
+.in08(in[28]), 
+.in09(in[29]), 
 .in10(in[30]), 
 .in11(in[31]), 
 .in12(1'b0), 
@@ -449,20 +450,20 @@ mux32 bit20(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(20) 
+.out(out[20]) 
 ); 
 
-mux32 bit19( 
-.in0(in[19]), 
-.in1(in[20]), 
-.in2(in[21]), 
-.in3(in[22]), 
-.in4(in[23]), 
-.in5(in[24]), 
-.in6(in[25]), 
-.in7(in[26]), 
-.in8(in[27]), 
-.in9(in[28]), 
+mux32 rlbit19( 
+.in00(in[19]), 
+.in01(in[20]), 
+.in02(in[21]), 
+.in03(in[22]), 
+.in04(in[23]), 
+.in05(in[24]), 
+.in06(in[25]), 
+.in07(in[26]), 
+.in08(in[27]), 
+.in09(in[28]), 
 .in10(in[29]), 
 .in11(in[30]), 
 .in12(in[31]), 
@@ -486,20 +487,20 @@ mux32 bit19(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(19) 
+.out(out[19]) 
 ); 
 
-mux32 bit18( 
-.in0(in[18]), 
-.in1(in[19]), 
-.in2(in[20]), 
-.in3(in[21]), 
-.in4(in[22]), 
-.in5(in[23]), 
-.in6(in[24]), 
-.in7(in[25]), 
-.in8(in[26]), 
-.in9(in[27]), 
+mux32 rlbit18( 
+.in00(in[18]), 
+.in01(in[19]), 
+.in02(in[20]), 
+.in03(in[21]), 
+.in04(in[22]), 
+.in05(in[23]), 
+.in06(in[24]), 
+.in07(in[25]), 
+.in08(in[26]), 
+.in09(in[27]), 
 .in10(in[28]), 
 .in11(in[29]), 
 .in12(in[30]), 
@@ -523,20 +524,20 @@ mux32 bit18(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(18) 
+.out(out[18]) 
 ); 
 
-mux32 bit17( 
-.in0(in[17]), 
-.in1(in[18]), 
-.in2(in[19]), 
-.in3(in[20]), 
-.in4(in[21]), 
-.in5(in[22]), 
-.in6(in[23]), 
-.in7(in[24]), 
-.in8(in[25]), 
-.in9(in[26]), 
+mux32 rlbit17( 
+.in00(in[17]), 
+.in01(in[18]), 
+.in02(in[19]), 
+.in03(in[20]), 
+.in04(in[21]), 
+.in05(in[22]), 
+.in06(in[23]), 
+.in07(in[24]), 
+.in08(in[25]), 
+.in09(in[26]), 
 .in10(in[27]), 
 .in11(in[28]), 
 .in12(in[29]), 
@@ -560,20 +561,20 @@ mux32 bit17(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(17) 
+.out(out[17]) 
 ); 
 
-mux32 bit16( 
-.in0(in[16]), 
-.in1(in[17]), 
-.in2(in[18]), 
-.in3(in[19]), 
-.in4(in[20]), 
-.in5(in[21]), 
-.in6(in[22]), 
-.in7(in[23]), 
-.in8(in[24]), 
-.in9(in[25]), 
+mux32 rlbit16( 
+.in00(in[16]), 
+.in01(in[17]), 
+.in02(in[18]), 
+.in03(in[19]), 
+.in04(in[20]), 
+.in05(in[21]), 
+.in06(in[22]), 
+.in07(in[23]), 
+.in08(in[24]), 
+.in09(in[25]), 
 .in10(in[26]), 
 .in11(in[27]), 
 .in12(in[28]), 
@@ -597,20 +598,20 @@ mux32 bit16(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(16) 
+.out(out[16]) 
 ); 
 
-mux32 bit15( 
-.in0(in[15]), 
-.in1(in[16]), 
-.in2(in[17]), 
-.in3(in[18]), 
-.in4(in[19]), 
-.in5(in[20]), 
-.in6(in[21]), 
-.in7(in[22]), 
-.in8(in[23]), 
-.in9(in[24]), 
+mux32 rlbit15( 
+.in00(in[15]), 
+.in01(in[16]), 
+.in02(in[17]), 
+.in03(in[18]), 
+.in04(in[19]), 
+.in05(in[20]), 
+.in06(in[21]), 
+.in07(in[22]), 
+.in08(in[23]), 
+.in09(in[24]), 
 .in10(in[25]), 
 .in11(in[26]), 
 .in12(in[27]), 
@@ -634,20 +635,20 @@ mux32 bit15(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(15) 
+.out(out[15]) 
 ); 
 
-mux32 bit14( 
-.in0(in[14]), 
-.in1(in[15]), 
-.in2(in[16]), 
-.in3(in[17]), 
-.in4(in[18]), 
-.in5(in[19]), 
-.in6(in[20]), 
-.in7(in[21]), 
-.in8(in[22]), 
-.in9(in[23]), 
+mux32 rlbit14( 
+.in00(in[14]), 
+.in01(in[15]), 
+.in02(in[16]), 
+.in03(in[17]), 
+.in04(in[18]), 
+.in05(in[19]), 
+.in06(in[20]), 
+.in07(in[21]), 
+.in08(in[22]), 
+.in09(in[23]), 
 .in10(in[24]), 
 .in11(in[25]), 
 .in12(in[26]), 
@@ -671,20 +672,20 @@ mux32 bit14(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(14) 
+.out(out[14]) 
 ); 
 
-mux32 bit13( 
-.in0(in[13]), 
-.in1(in[14]), 
-.in2(in[15]), 
-.in3(in[16]), 
-.in4(in[17]), 
-.in5(in[18]), 
-.in6(in[19]), 
-.in7(in[20]), 
-.in8(in[21]), 
-.in9(in[22]), 
+mux32 rlbit13( 
+.in00(in[13]), 
+.in01(in[14]), 
+.in02(in[15]), 
+.in03(in[16]), 
+.in04(in[17]), 
+.in05(in[18]), 
+.in06(in[19]), 
+.in07(in[20]), 
+.in08(in[21]), 
+.in09(in[22]), 
 .in10(in[23]), 
 .in11(in[24]), 
 .in12(in[25]), 
@@ -708,20 +709,20 @@ mux32 bit13(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(13) 
+.out(out[13]) 
 ); 
 
-mux32 bit12( 
-.in0(in[12]), 
-.in1(in[13]), 
-.in2(in[14]), 
-.in3(in[15]), 
-.in4(in[16]), 
-.in5(in[17]), 
-.in6(in[18]), 
-.in7(in[19]), 
-.in8(in[20]), 
-.in9(in[21]), 
+mux32 rlbit12( 
+.in00(in[12]), 
+.in01(in[13]), 
+.in02(in[14]), 
+.in03(in[15]), 
+.in04(in[16]), 
+.in05(in[17]), 
+.in06(in[18]), 
+.in07(in[19]), 
+.in08(in[20]), 
+.in09(in[21]), 
 .in10(in[22]), 
 .in11(in[23]), 
 .in12(in[24]), 
@@ -745,20 +746,20 @@ mux32 bit12(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(12) 
+.out(out[12]) 
 ); 
 
-mux32 bit11( 
-.in0(in[11]), 
-.in1(in[12]), 
-.in2(in[13]), 
-.in3(in[14]), 
-.in4(in[15]), 
-.in5(in[16]), 
-.in6(in[17]), 
-.in7(in[18]), 
-.in8(in[19]), 
-.in9(in[20]), 
+mux32 rlbit11( 
+.in00(in[11]), 
+.in01(in[12]), 
+.in02(in[13]), 
+.in03(in[14]), 
+.in04(in[15]), 
+.in05(in[16]), 
+.in06(in[17]), 
+.in07(in[18]), 
+.in08(in[19]), 
+.in09(in[20]), 
 .in10(in[21]), 
 .in11(in[22]), 
 .in12(in[23]), 
@@ -782,20 +783,20 @@ mux32 bit11(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(11) 
+.out(out[11]) 
 ); 
 
-mux32 bit10( 
-.in0(in[10]), 
-.in1(in[11]), 
-.in2(in[12]), 
-.in3(in[13]), 
-.in4(in[14]), 
-.in5(in[15]), 
-.in6(in[16]), 
-.in7(in[17]), 
-.in8(in[18]), 
-.in9(in[19]), 
+mux32 rlbit10( 
+.in00(in[10]), 
+.in01(in[11]), 
+.in02(in[12]), 
+.in03(in[13]), 
+.in04(in[14]), 
+.in05(in[15]), 
+.in06(in[16]), 
+.in07(in[17]), 
+.in08(in[18]), 
+.in09(in[19]), 
 .in10(in[20]), 
 .in11(in[21]), 
 .in12(in[22]), 
@@ -819,20 +820,20 @@ mux32 bit10(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(10) 
+.out(out[10]) 
 ); 
 
-mux32 bit9( 
-.in0(in[9]), 
-.in1(in[10]), 
-.in2(in[11]), 
-.in3(in[12]), 
-.in4(in[13]), 
-.in5(in[14]), 
-.in6(in[15]), 
-.in7(in[16]), 
-.in8(in[17]), 
-.in9(in[18]), 
+mux32 rlbit9( 
+.in00(in[9]), 
+.in01(in[10]), 
+.in02(in[11]), 
+.in03(in[12]), 
+.in04(in[13]), 
+.in05(in[14]), 
+.in06(in[15]), 
+.in07(in[16]), 
+.in08(in[17]), 
+.in09(in[18]), 
 .in10(in[19]), 
 .in11(in[20]), 
 .in12(in[21]), 
@@ -856,20 +857,20 @@ mux32 bit9(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(9) 
+.out(out[9]) 
 ); 
 
-mux32 bit8( 
-.in0(in[8]), 
-.in1(in[9]), 
-.in2(in[10]), 
-.in3(in[11]), 
-.in4(in[12]), 
-.in5(in[13]), 
-.in6(in[14]), 
-.in7(in[15]), 
-.in8(in[16]), 
-.in9(in[17]), 
+mux32 rlbit8( 
+.in00(in[8]), 
+.in01(in[9]), 
+.in02(in[10]), 
+.in03(in[11]), 
+.in04(in[12]), 
+.in05(in[13]), 
+.in06(in[14]), 
+.in07(in[15]), 
+.in08(in[16]), 
+.in09(in[17]), 
 .in10(in[18]), 
 .in11(in[19]), 
 .in12(in[20]), 
@@ -893,20 +894,20 @@ mux32 bit8(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(8) 
+.out(out[8]) 
 ); 
 
-mux32 bit7( 
-.in0(in[7]), 
-.in1(in[8]), 
-.in2(in[9]), 
-.in3(in[10]), 
-.in4(in[11]), 
-.in5(in[12]), 
-.in6(in[13]), 
-.in7(in[14]), 
-.in8(in[15]), 
-.in9(in[16]), 
+mux32 rlbit7( 
+.in00(in[7]), 
+.in01(in[8]), 
+.in02(in[9]), 
+.in03(in[10]), 
+.in04(in[11]), 
+.in05(in[12]), 
+.in06(in[13]), 
+.in07(in[14]), 
+.in08(in[15]), 
+.in09(in[16]), 
 .in10(in[17]), 
 .in11(in[18]), 
 .in12(in[19]), 
@@ -930,20 +931,20 @@ mux32 bit7(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(7) 
+.out(out[7]) 
 ); 
 
-mux32 bit6( 
-.in0(in[6]), 
-.in1(in[7]), 
-.in2(in[8]), 
-.in3(in[9]), 
-.in4(in[10]), 
-.in5(in[11]), 
-.in6(in[12]), 
-.in7(in[13]), 
-.in8(in[14]), 
-.in9(in[15]), 
+mux32 rlbit6( 
+.in00(in[6]), 
+.in01(in[7]), 
+.in02(in[8]), 
+.in03(in[9]), 
+.in04(in[10]), 
+.in05(in[11]), 
+.in06(in[12]), 
+.in07(in[13]), 
+.in08(in[14]), 
+.in09(in[15]), 
 .in10(in[16]), 
 .in11(in[17]), 
 .in12(in[18]), 
@@ -967,20 +968,20 @@ mux32 bit6(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(6) 
+.out(out[6]) 
 ); 
 
-mux32 bit5( 
-.in0(in[5]), 
-.in1(in[6]), 
-.in2(in[7]), 
-.in3(in[8]), 
-.in4(in[9]), 
-.in5(in[10]), 
-.in6(in[11]), 
-.in7(in[12]), 
-.in8(in[13]), 
-.in9(in[14]), 
+mux32 rlbit5( 
+.in00(in[5]), 
+.in01(in[6]), 
+.in02(in[7]), 
+.in03(in[8]), 
+.in04(in[9]), 
+.in05(in[10]), 
+.in06(in[11]), 
+.in07(in[12]), 
+.in08(in[13]), 
+.in09(in[14]), 
 .in10(in[15]), 
 .in11(in[16]), 
 .in12(in[17]), 
@@ -1004,20 +1005,20 @@ mux32 bit5(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(5) 
+.out(out[5]) 
 ); 
 
-mux32 bit4( 
-.in0(in[4]), 
-.in1(in[5]), 
-.in2(in[6]), 
-.in3(in[7]), 
-.in4(in[8]), 
-.in5(in[9]), 
-.in6(in[10]), 
-.in7(in[11]), 
-.in8(in[12]), 
-.in9(in[13]), 
+mux32 rlbit4( 
+.in00(in[4]), 
+.in01(in[5]), 
+.in02(in[6]), 
+.in03(in[7]), 
+.in04(in[8]), 
+.in05(in[9]), 
+.in06(in[10]), 
+.in07(in[11]), 
+.in08(in[12]), 
+.in09(in[13]), 
 .in10(in[14]), 
 .in11(in[15]), 
 .in12(in[16]), 
@@ -1041,20 +1042,20 @@ mux32 bit4(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(4) 
+.out(out[4]) 
 ); 
 
-mux32 bit3( 
-.in0(in[3]), 
-.in1(in[4]), 
-.in2(in[5]), 
-.in3(in[6]), 
-.in4(in[7]), 
-.in5(in[8]), 
-.in6(in[9]), 
-.in7(in[10]), 
-.in8(in[11]), 
-.in9(in[12]), 
+mux32 rlbit3( 
+.in00(in[3]), 
+.in01(in[4]), 
+.in02(in[5]), 
+.in03(in[6]), 
+.in04(in[7]), 
+.in05(in[8]), 
+.in06(in[9]), 
+.in07(in[10]), 
+.in08(in[11]), 
+.in09(in[12]), 
 .in10(in[13]), 
 .in11(in[14]), 
 .in12(in[15]), 
@@ -1078,20 +1079,20 @@ mux32 bit3(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(3) 
+.out(out[3]) 
 ); 
 
-mux32 bit2( 
-.in0(in[2]), 
-.in1(in[3]), 
-.in2(in[4]), 
-.in3(in[5]), 
-.in4(in[6]), 
-.in5(in[7]), 
-.in6(in[8]), 
-.in7(in[9]), 
-.in8(in[10]), 
-.in9(in[11]), 
+mux32 rlbit2( 
+.in00(in[2]), 
+.in01(in[3]), 
+.in02(in[4]), 
+.in03(in[5]), 
+.in04(in[6]), 
+.in05(in[7]), 
+.in06(in[8]), 
+.in07(in[9]), 
+.in08(in[10]), 
+.in09(in[11]), 
 .in10(in[12]), 
 .in11(in[13]), 
 .in12(in[14]), 
@@ -1115,20 +1116,20 @@ mux32 bit2(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(2) 
+.out(out[2]) 
 ); 
 
-mux32 bit1( 
-.in0(in[1]), 
-.in1(in[2]), 
-.in2(in[3]), 
-.in3(in[4]), 
-.in4(in[5]), 
-.in5(in[6]), 
-.in6(in[7]), 
-.in7(in[8]), 
-.in8(in[9]), 
-.in9(in[10]), 
+mux32 rlbit1( 
+.in00(in[1]), 
+.in01(in[2]), 
+.in02(in[3]), 
+.in03(in[4]), 
+.in04(in[5]), 
+.in05(in[6]), 
+.in06(in[7]), 
+.in07(in[8]), 
+.in08(in[9]), 
+.in09(in[10]), 
 .in10(in[11]), 
 .in11(in[12]), 
 .in12(in[13]), 
@@ -1152,20 +1153,20 @@ mux32 bit1(
 .in30(in[31]), 
 .in31(1'b0), 
 .select(shamt), 
-.out(1) 
+.out(out[1]) 
 ); 
 
-mux32 bit0( 
-.in0(in[0]), 
-.in1(in[1]), 
-.in2(in[2]), 
-.in3(in[3]), 
-.in4(in[4]), 
-.in5(in[5]), 
-.in6(in[6]), 
-.in7(in[7]), 
-.in8(in[8]), 
-.in9(in[9]), 
+mux32 rlbit0( 
+.in00(in[0]), 
+.in01(in[1]), 
+.in02(in[2]), 
+.in03(in[3]), 
+.in04(in[4]), 
+.in05(in[5]), 
+.in06(in[6]), 
+.in07(in[7]), 
+.in08(in[8]), 
+.in09(in[9]), 
 .in10(in[10]), 
 .in11(in[11]), 
 .in12(in[12]), 
@@ -1189,9 +1190,8 @@ mux32 bit0(
 .in30(in[30]), 
 .in31(in[31]), 
 .select(shamt), 
-.out(0) 
+.out(out[0]) 
 ); 
-
 
 
 

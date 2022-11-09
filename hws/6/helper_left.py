@@ -13,10 +13,10 @@ for j in range(32):
         print('.in' + f'{31-i:02}' + '(1\'b0),')
 
     print('.select(shamt),')
-    print('.out('+str(31-j)+')')
+    print('.out(out['+str(31-j)+']) \n')
     print(');')
     print()
     f.write('.select(shamt), \n')
-    f.write('.out('+str(31-j)+') \n')
+    f.write('.out(out['+str(31-j)+']) \n')
     f.write('); \n')
     f.write('\n')

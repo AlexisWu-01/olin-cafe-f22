@@ -42,7 +42,7 @@ mux32 bit31(
 .in30(in[1]), 
 .in31(in[0]), 
 .select(shamt), 
-.out(31) 
+.out(out[31]) 
 ); 
 
 mux32 bit30( 
@@ -79,7 +79,7 @@ mux32 bit30(
 .in30(in[0]), 
 .in31(1'b0), 
 .select(shamt), 
-.out(30) 
+.out(out[30]) 
 ); 
 
 mux32 bit29( 
@@ -116,7 +116,7 @@ mux32 bit29(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(29) 
+.out(out[29]) 
 ); 
 
 mux32 bit28( 
@@ -153,7 +153,7 @@ mux32 bit28(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(28) 
+.out(out[28]) 
 ); 
 
 mux32 bit27( 
@@ -190,7 +190,7 @@ mux32 bit27(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(27) 
+.out(out[27]) 
 ); 
 
 mux32 bit26( 
@@ -227,7 +227,7 @@ mux32 bit26(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(26) 
+.out(out[26]) 
 ); 
 
 mux32 bit25( 
@@ -264,7 +264,7 @@ mux32 bit25(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(25) 
+.out(out[25]) 
 ); 
 
 mux32 bit24( 
@@ -301,7 +301,7 @@ mux32 bit24(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(24) 
+.out(out[24]) 
 ); 
 
 mux32 bit23( 
@@ -338,7 +338,7 @@ mux32 bit23(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(23) 
+.out(out[23]) 
 ); 
 
 mux32 bit22( 
@@ -375,7 +375,7 @@ mux32 bit22(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(22) 
+.out(out[22]) 
 ); 
 
 mux32 bit21( 
@@ -412,7 +412,7 @@ mux32 bit21(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(21) 
+.out(out[21]) 
 ); 
 
 mux32 bit20( 
@@ -449,7 +449,7 @@ mux32 bit20(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(20) 
+.out(out[20]) 
 ); 
 
 mux32 bit19( 
@@ -486,7 +486,7 @@ mux32 bit19(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(19) 
+.out(out[19]) 
 ); 
 
 mux32 bit18( 
@@ -523,7 +523,7 @@ mux32 bit18(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(18) 
+.out(out[18]) 
 ); 
 
 mux32 bit17( 
@@ -560,7 +560,7 @@ mux32 bit17(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(17) 
+.out(out[17]) 
 ); 
 
 mux32 bit16( 
@@ -597,7 +597,7 @@ mux32 bit16(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(16) 
+.out(out[16]) 
 ); 
 
 mux32 bit15( 
@@ -634,7 +634,7 @@ mux32 bit15(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(15) 
+.out(out[15]) 
 ); 
 
 mux32 bit14( 
@@ -671,7 +671,7 @@ mux32 bit14(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(14) 
+.out(out[14]) 
 ); 
 
 mux32 bit13( 
@@ -708,7 +708,7 @@ mux32 bit13(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(13) 
+.out(out[13]) 
 ); 
 
 mux32 bit12( 
@@ -745,7 +745,7 @@ mux32 bit12(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(12) 
+.out(out[12]) 
 ); 
 
 mux32 bit11( 
@@ -782,7 +782,7 @@ mux32 bit11(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(11) 
+.out(out[11]) 
 ); 
 
 mux32 bit10( 
@@ -819,7 +819,7 @@ mux32 bit10(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(10) 
+.out(out[10]) 
 ); 
 
 mux32 bit9( 
@@ -856,7 +856,7 @@ mux32 bit9(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(9) 
+.out(out[9]) 
 ); 
 
 mux32 bit8( 
@@ -893,7 +893,7 @@ mux32 bit8(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(8) 
+.out(out[8]) 
 ); 
 
 mux32 bit7( 
@@ -930,7 +930,7 @@ mux32 bit7(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(7) 
+.out(out[7]) 
 ); 
 
 mux32 bit6( 
@@ -967,7 +967,7 @@ mux32 bit6(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(6) 
+.out(out[6]) 
 ); 
 
 mux32 bit5( 
@@ -1004,7 +1004,7 @@ mux32 bit5(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(5) 
+.out(out[5]) 
 ); 
 
 mux32 bit4( 
@@ -1041,7 +1041,7 @@ mux32 bit4(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(4) 
+.out(out[4]) 
 ); 
 
 mux32 bit3( 
@@ -1078,7 +1078,7 @@ mux32 bit3(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(3) 
+.out(out[3]) 
 ); 
 
 mux32 bit2( 
@@ -1115,7 +1115,7 @@ mux32 bit2(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(2) 
+.out(out[2]) 
 ); 
 
 mux32 bit1( 
@@ -1152,7 +1152,7 @@ mux32 bit1(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(1) 
+.out(out[1]) 
 ); 
 
 mux32 bit0( 
@@ -1189,7 +1189,7 @@ mux32 bit0(
 .in30(1'b0), 
 .in31(1'b0), 
 .select(shamt), 
-.out(0) 
+.out(out[0]) 
 ); 
 
 
