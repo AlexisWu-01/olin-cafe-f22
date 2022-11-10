@@ -16,94 +16,86 @@ output logic equal; // is high if a == b.
 
 // Use *only* structural logic and previously defined modules to implement an 
 // ALU that can do all of operations defined in alu_types.sv's alu_op_code_t.
-
-//   ALU_AND  = 4'b0001,
-//   ALU_OR   = 4'b0010,
-//   ALU_XOR  = 4'b0011,
-//   ALU_SLL  = 4'b0101,
-//   ALU_SRL  = 4'b0110,
-//   ALU_SRA  = 4'b0111,
-//   ALU_ADD  = 4'b1000,
-//   ALU_SUB  = 4'b1100,
-//   ALU_SLT  = 4'b1101,
-//   ALU_SLTU = 4'b1111
-logic AND, OR, XOR, SLL, SRL, ADD, SUB, SLT, SLTU;
-always_comb AND = ~(control[3] | control[2] | control[1]) & control[0];
-always_comb OR = ~(control[3] | control[2] | control[0]) & control[1];
-always_comb XOR = ~(control[3] | control[2]) & control[1] & control[0];
-always_comb SLL = ~(control[3] | control[1]) & control[2] & control[0];
-always_comb SRL = ~(control[3] | control[0]) & control[2] & control[1];
-always_comb SRA = ~ control[3] & control[2] & constrol[1] & control[0];
-always_comb ADD = ~SRA;
-always_comb SUB = ~XOR;
-always_comb SLT = ~OR;
-always_comb SLTU = control[3] & control[2] & constrol[1] & control[0];
     
-logic [N-1:0] AND_res, OR_res, XOR_res, SLL_res, SRL_res, SRA_res, ADD_res, SUB_res, SLT_res, SLTU_res;
+logic [N-1:0] AND_res, OR_res, XOR_res, SLL_res, SRL_res, SRA_res, ADD_res, SUB_res;
+logic SLT_res,  SLTU_res;
 
-generate
-    genvar i;
-    for (i=0; i<N; i++) begin: and_calculation
-        always_comb AND_res[i] = ~(a[i] ^ b[i]);
-    end
-endgenerate
     
-generate
-    genvar i;
-    for (i=0; i<N;i++) begin: or_calculation
-    always_comb OR_res[i] = a[i] | b[i];
-    end
-endgenerate
+always_comb AND_res = a & b;
 
 
-generate
-    genvar i;
-    for (i=0; i<N;i++) begin: xor_calculation
-    always_comb XOR_res[i] = a[i] ^ b[i];
-    end
-endgenerate
+always_comb OR_res = a|b;
+
+always_comb XOR_res = a ^ b;
+
+logic shift_too_much;
+logic [N-1:0] left_shift, right_shift_l, right_shift_a;
+
+// comparator_lt compare_31(
+//     .a(32'd31),
+//     .b(b),
+//     .out(shift_too_much)
+// );
+
+//I tried several compare modules, but been getting overflow issues of the output.
+always_comb shift_too_much = (b > 31);
 
 // shift left 
 shift_left_logical sll(
     .in(a),
     .shamt(b),
-    .out(SLL_res)
+    .out(left_shift)
 );
+always_comb SLL_res = shift_too_much? 32'b0 : left_shift;
+
 
 //shift right logical
 shift_right_logical srl(
     .in(a),
     .shamt(b),
-    .out(SRL_res)
+    .out(right_shift_l)
 );
-
+always_comb SRL_res = shift_too_much? 32'b0 : right_shift_l;
 
 //shift right arithmetic
 shift_right_arithmetic sra(
     .in(a),
     .shamt(b),
-    .out(SRA_res)
+    .out(right_shift_a)
 );
 
+always_comb SRA_res = shift_too_much? 32'b0 : right_shift_a;
+
+
+logic overflow_add, overflow_sub;
 
 // add 
-adder_n addn(
+adder_n #(.N(N)) addn(
     .a(a),
     .b(b),
-    .c_in(0),
+    .c_in(1'b0),
     .sum(ADD_res),
-    .cout(overflow)
+    .c_out(overflow_add)
 );
 
 //subtract a from b
 logic [N-1:0] b_bar;
-addder_n subtractn(
+logic comp;
+
+// logic [N-1:0] sub;
+always_comb b_bar = ~b;
+adder_n #(.N(N)) subtraction(
     .a(a),
     .b(b_bar),
     .c_in(1'b1),
     .sum(SUB_res),
-    .c_out()
+    .c_out(comp)
 );
+
+always_comb SLTU_res = ~comp;
+
+
+// assign SUB_res = {overflow_sub,sub};
 
 //if a is less than b
 comparator_lt compare(
@@ -113,33 +105,31 @@ comparator_lt compare(
 );
 
 
-// compare unsigned values
 
-generate
-    genvar i;
-    for (i=0; i<N;i++) begin: xor_calculation
-    always_comb SLTU[i] = ~a[i] & b[i];
-    end
-endgenerate
+mux16 #(.N(N)) select_control(
+    .in00(32'b0),
+    .in01(AND_res),
+    .in02(OR_res),
+    .in03(XOR_res),
+    .in04(32'b0),
+    .in05(SLL_res),
+    .in06(SRL_res),
+    .in07(SRA_res),
+    .in08(ADD_res),
+    .in09(32'b0),
+    .in10(32'b0),
+    .in11(32'b0),
+    .in12(SUB_res),
+    .in13(SLT_res),
+    .in14(32'b0),
+    .in15(SLTU_res),
+    .select(control),
+    .out(result)
+);
 
-
-// mux16 select_control(
-//     .in00(1'b0),
-//     .in01(AND_res),
-//     .in02(OR_res),
-//     .in03(XOR_res),
-//     .in04(1'b0),
-//     .in05(SLL_res),
-//     .in06(SRL_res),
-//     .in07(SRA_res),
-//     .in08(ADD_res),
-//     .in09(1'b0),
-//     .in10(1'b0),
-//     .in11(1'b0),
-//     .in12(SUB_res),
-//     .in13(SLT_res),
-//     .in14(),
-//     .in15(SLTU_res),
-// )
+always_comb zero = ~(|result);
+logic [N-1:0] compare_bit;
+always_comb compare_bit = ~ (a^b);
+always_comb equal = & compare_bit;
 
 endmodule
