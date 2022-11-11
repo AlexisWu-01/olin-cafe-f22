@@ -35,265 +35,45 @@ always_comb write_index = wr_addr?(32'b1 << wr_addr) : 32'b0;
 
 
 // write data
-register reg_wr01(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd31)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x01)
-);
 
-register reg_wr02(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd30)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x02)
-);
-
-register reg_wr03(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd29)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x03)
-);
-
-register reg_wr04(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd28)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x04)
-);
-
-register reg_wr05(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd27)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x05)
-);
-
-register reg_wr06(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd26)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x06)
-);
-
-register reg_wr07(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd25)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x07)
-);
-
-register reg_wr08(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd24)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x08)
-);
-
-register reg_wr09(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd23)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x09)
-);
-
-register reg_wr10(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd22)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x10)
-);
-
-register reg_wr11(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd21)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x11)
-);
-
-register reg_wr12(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd20)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x12)
-);
-
-register reg_wr13(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd19)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x13)
-);
-
-register reg_wr14(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd18)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x14)
-);
-
-register reg_wr15(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd17)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x15)
-);
-
-register reg_wr16(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd16)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x16)
-);
-
-register reg_wr17(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd15)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x17)
-);
-
-register reg_wr18(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd14)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x18)
-);
-
-register reg_wr19(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd13)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x19)
-);
-
-register reg_wr20(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd12)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x20)
-);
-
-register reg_wr21(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd11)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x21)
-);
-
-register reg_wr22(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd10)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x22)
-);
-
-register reg_wr23(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd9)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x23)
-);
-
-register reg_wr24(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd8)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x24)
-);
-
-register reg_wr25(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd7)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x25)
-);
-
-register reg_wr26(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd6)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x26)
-);
-
-register reg_wr27(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd5)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x27)
-);
-
-register reg_wr28(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd4)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x28)
-);
-
-register reg_wr29(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd3)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x29)
-);
-
-register reg_wr30(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd2)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x30)
-);
-
-register reg_wr31(
-  .clk(clk),
-  .ena(wr_ena & (write_index==32'd1)),
-  .rst(1'b0),
-  .d(wr_data),
-  .q(x31)
-);
-
-
+register  #(.N(32)) reg_wr1(.clk(clk), .ena(wr_ena & write_index[1]), .rst(1'b0), .d(wr_data), .q(x01));
+register  #(.N(32)) reg_wr2(.clk(clk), .ena(wr_ena & write_index[2]), .rst(1'b0), .d(wr_data), .q(x02));
+register  #(.N(32)) reg_wr3(.clk(clk), .ena(wr_ena & write_index[3]), .rst(1'b0), .d(wr_data), .q(x03));
+register  #(.N(32)) reg_wr4(.clk(clk), .ena(wr_ena & write_index[4]), .rst(1'b0), .d(wr_data), .q(x04));
+register  #(.N(32)) reg_wr5(.clk(clk), .ena(wr_ena & write_index[5]), .rst(1'b0), .d(wr_data), .q(x05));
+register  #(.N(32)) reg_wr6(.clk(clk), .ena(wr_ena & write_index[6]), .rst(1'b0), .d(wr_data), .q(x06));
+register  #(.N(32)) reg_wr7(.clk(clk), .ena(wr_ena & write_index[7]), .rst(1'b0), .d(wr_data), .q(x07));
+register  #(.N(32)) reg_wr8(.clk(clk), .ena(wr_ena & write_index[8]), .rst(1'b0), .d(wr_data), .q(x08));
+register  #(.N(32)) reg_wr9(.clk(clk), .ena(wr_ena & write_index[9]), .rst(1'b0), .d(wr_data), .q(x09));
+register  #(.N(32)) reg_wr10(.clk(clk), .ena(wr_ena & write_index[10]), .rst(1'b0), .d(wr_data), .q(x10));
+register  #(.N(32)) reg_wr11(.clk(clk), .ena(wr_ena & write_index[11]), .rst(1'b0), .d(wr_data), .q(x11));
+register  #(.N(32)) reg_wr12(.clk(clk), .ena(wr_ena & write_index[12]), .rst(1'b0), .d(wr_data), .q(x12));
+register  #(.N(32)) reg_wr13(.clk(clk), .ena(wr_ena & write_index[13]), .rst(1'b0), .d(wr_data), .q(x13));
+register  #(.N(32)) reg_wr14(.clk(clk), .ena(wr_ena & write_index[14]), .rst(1'b0), .d(wr_data), .q(x14));
+register  #(.N(32)) reg_wr15(.clk(clk), .ena(wr_ena & write_index[15]), .rst(1'b0), .d(wr_data), .q(x15));
+register  #(.N(32)) reg_wr16(.clk(clk), .ena(wr_ena & write_index[16]), .rst(1'b0), .d(wr_data), .q(x16));
+register  #(.N(32)) reg_wr17(.clk(clk), .ena(wr_ena & write_index[17]), .rst(1'b0), .d(wr_data), .q(x17));
+register  #(.N(32)) reg_wr18(.clk(clk), .ena(wr_ena & write_index[18]), .rst(1'b0), .d(wr_data), .q(x18));
+register  #(.N(32)) reg_wr19(.clk(clk), .ena(wr_ena & write_index[19]), .rst(1'b0), .d(wr_data), .q(x19));
+register  #(.N(32)) reg_wr20(.clk(clk), .ena(wr_ena & write_index[20]), .rst(1'b0), .d(wr_data), .q(x20));
+register  #(.N(32)) reg_wr21(.clk(clk), .ena(wr_ena & write_index[21]), .rst(1'b0), .d(wr_data), .q(x21));
+register  #(.N(32)) reg_wr22(.clk(clk), .ena(wr_ena & write_index[22]), .rst(1'b0), .d(wr_data), .q(x22));
+register  #(.N(32)) reg_wr23(.clk(clk), .ena(wr_ena & write_index[23]), .rst(1'b0), .d(wr_data), .q(x23));
+register  #(.N(32)) reg_wr24(.clk(clk), .ena(wr_ena & write_index[24]), .rst(1'b0), .d(wr_data), .q(x24));
+register  #(.N(32)) reg_wr25(.clk(clk), .ena(wr_ena & write_index[25]), .rst(1'b0), .d(wr_data), .q(x25));
+register  #(.N(32)) reg_wr26(.clk(clk), .ena(wr_ena & write_index[26]), .rst(1'b0), .d(wr_data), .q(x26));
+register  #(.N(32)) reg_wr27(.clk(clk), .ena(wr_ena & write_index[27]), .rst(1'b0), .d(wr_data), .q(x27));
+register  #(.N(32)) reg_wr28(.clk(clk), .ena(wr_ena & write_index[28]), .rst(1'b0), .d(wr_data), .q(x28));
+register  #(.N(32)) reg_wr29(.clk(clk), .ena(wr_ena & write_index[29]), .rst(1'b0), .d(wr_data), .q(x29));
+register  #(.N(32)) reg_wr30(.clk(clk), .ena(wr_ena & write_index[30]), .rst(1'b0), .d(wr_data), .q(x30));
+register  #(.N(32)) reg_wr31(.clk(clk), .ena(wr_ena & write_index[31]), .rst(1'b0), .d(wr_data), .q(x31));
 
 logic [31:0] read_0_index, read_1_index;
-logic [31:0] trash;
+logic [31:0] out_data_0, out_data_1;
+
 // write file decoder
 always_comb read_0_index = rd_addr0?(32'b1 << rd_addr0) : 32'b0;
 always_comb read_1_index = rd_addr1?(32'b1 << rd_addr1) : 32'b0;
-
-always_ff @(posedge clk) begin
-  rd_data0 <= (read_0_index);
-end
 
 
 
