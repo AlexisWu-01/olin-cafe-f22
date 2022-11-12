@@ -7,7 +7,7 @@ module test_alu;
 parameter N = 32; // Don't need to support other numbers, just using this as a constant.
 parameter N_TEST_VECTOR = 9; // Change this number based on how many cases you implement in alu_testcases.memh
 parameter N_RANDOM_TESTS = 25;
-parameter MAX_ERRORS = 10; // You can change this number to have the test fail earlier or later if too many errors are encounterd. Can make it easier to sift through waveforms.
+parameter MAX_ERRORS = 20; // You can change this number to have the test fail earlier or later if too many errors are encounterd. Can make it easier to sift through waveforms.
 
 logic [N-1:0] a, b; // Inputs to the ALU.
 alu_control_t control; // Sets the current operation.
@@ -38,7 +38,7 @@ initial begin
   a = 0; b = 0; control = control.first;
   errors = 0;
   // Edit the alu_testcases.memh file to add more test cases!
-  $readmemh("alu_testcases.memh", test_vector);
+  $readmemh("tests/alu_testcases.memh", test_vector);
   loop = 1;
   while (loop) begin
     $display("Testing alu control = %b (%s)", control, alu_control_name(control));
@@ -84,13 +84,13 @@ always @(a or b or control) begin
   end
 
   // Comment out this check if you didn't have time to do the overflow logic.
-  if(overflow !== correct_overflow) begin
-    $display("@%t: Error: OVERFLOW  : a = %h, b = %h, result = %h, overflow = %b, should be %b", $time, a, b, result, overflow, correct_overflow);
-    errors = errors + 1;
-  end
+  // if(overflow !== correct_overflow) begin
+    // $display("@%t: Error: OVERFLOW  : a = %h, b = %h, result = %h, overflow = %b, should be %b", $time, a, b, result, overflow, correct_overflow);
+    // errors = errors + 1;
+  // end
   
   if(result !== correct_result) begin
-    $display("@%t: Error: %s  : a = %h, b = %h, result = %h, should be %h", $time, alu_control_name(control), a, b, result, correct_result);
+    $display("@%t: Error: %s  : a = %b, b = %b, result = %b, should be %b", $time, alu_control_name(control), a, b, result, correct_result);
     errors = errors + 1;
     errors_by_op[control] = errors_by_op[control] + 1;
   end

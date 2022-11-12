@@ -67,7 +67,6 @@ shift_right_arithmetic sra(
 always_comb SRA_res = shift_too_much? 32'b0 : right_shift_a;
 
 
-logic overflow_add, overflow_sub;
 
 // add 
 adder_n #(.N(N)) addn(
@@ -75,7 +74,7 @@ adder_n #(.N(N)) addn(
     .b(b),
     .c_in(1'b0),
     .sum(ADD_res),
-    .c_out(overflow_add)
+    .c_out()
 );
 
 //subtract a from b
