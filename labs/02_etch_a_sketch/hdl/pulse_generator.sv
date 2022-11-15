@@ -12,5 +12,11 @@ output logic out;
 logic [N-1:0] counter;
 logic counter_comparator;
 
+always_ff @(posedge clk) begin
+  if (rst) counter = 0;
+  else counter <= (counter < ticks)? counter + 1'b1:0;
+out <= (counter == ticks-1)? 1'b1 : 1'b0;
+end
+
 
 endmodule
